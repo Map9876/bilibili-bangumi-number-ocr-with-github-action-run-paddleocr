@@ -6,10 +6,10 @@ try:
 except ModuleNotFoundError: 
     # 如果库不存在，则执行安装命令 
     exec_command = 'pip3 install paddlepaddle'
-    os.system(curl_command)
+    os.system(exec_command)
     exec_command = 'pip install paddleocr'
     
-    os.system(curl_command)
+    os.system(exec_command)
 
 c = "curl https://bce.bdstatic.com/p3m/common-service/uploads/wap-article_244e0ff.png -O"   
 os.system(c) 
