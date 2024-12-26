@@ -1,8 +1,10 @@
 import os
-
+exec_command = 'pip install setuptools'
+    
+os.system(exec_command)
 
     # 如果库不存在，则执行安装命令 
-exec_command = 'pip3 install paddlepaddle setuptools'
+exec_command = 'python3 -m pip install paddlepaddle==3.0.0b2 -i https://www.paddlepaddle.org.cn/packages/stable/cpu/'
 os.system(exec_command)
 exec_command = 'pip install paddleocr'
     
