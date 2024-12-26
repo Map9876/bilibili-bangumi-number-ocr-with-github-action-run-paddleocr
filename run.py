@@ -2,7 +2,7 @@ try:
     import paddlepaddle
     from paddleocr import PaddleOCR,draw_ocr 
     print("paddlepaddle - gpu库已经存在，不需要安装。") 
-except ImportError: 
+except ModuleNotFoundError: 
     # 如果库不存在，则执行安装命令 
     exec_command = 'python -m pip install paddlepaddle-gpu==3.0.0b2 -i https://www.paddlepaddle.org.cn/packages/stable/cu123/'  
     exec(exec_command)
