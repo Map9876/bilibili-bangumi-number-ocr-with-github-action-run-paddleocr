@@ -2,7 +2,7 @@ import os
 
 
     # 如果库不存在，则执行安装命令 
-exec_command = 'pip3 install paddlepaddle'
+exec_command = 'pip3 install paddlepaddle setuptools'
 os.system(exec_command)
 exec_command = 'pip install paddleocr'
     
