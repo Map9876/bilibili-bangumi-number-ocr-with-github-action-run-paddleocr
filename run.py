@@ -1,5 +1,5 @@
 import os
-exec_command = 'pip install setuptools'
+exec_command = 'pip install setuptools numpy'
     
 os.system(exec_command)
 
