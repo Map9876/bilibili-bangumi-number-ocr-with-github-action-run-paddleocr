@@ -1,17 +1,15 @@
 import os
-try: 
-    import paddlepaddle
-    from paddleocr import PaddleOCR,draw_ocr 
-    print("paddlepaddle - gpu库已经存在，不需要安装。") 
-except ModuleNotFoundError: 
-    # 如果库不存在，则执行安装命令 
-    exec_command = 'pip3 install paddlepaddle'
-    os.system(exec_command)
-    exec_command = 'pip install paddleocr'
-    
-    os.system(exec_command)
-    from paddleocr import PaddleOCR,draw_ocr
 
+
+    # 如果库不存在，则执行安装命令 
+exec_command = 'pip3 install paddlepaddle'
+os.system(exec_command)
+exec_command = 'pip install paddleocr'
+    
+os.system(exec_command)
+from paddleocr import PaddleOCR,draw_ocr
+import paddlepaddle
+from paddleocr import PaddleOCR,draw_ocr
 c = "curl https://bce.bdstatic.com/p3m/common-service/uploads/wap-article_244e0ff.png -O"   
 os.system(c) 
 import cv2
