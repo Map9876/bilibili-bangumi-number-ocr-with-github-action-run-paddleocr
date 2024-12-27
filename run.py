@@ -10,7 +10,7 @@ exec_command = 'pip install paddleocr'
     
 os.system(exec_command)
 from paddleocr import PaddleOCR,draw_ocr
-import paddlepaddle
+import paddle
 from paddleocr import PaddleOCR,draw_ocr
 c = "curl https://bce.bdstatic.com/p3m/common-service/uploads/wap-article_244e0ff.png -O"   
 os.system(c) 
