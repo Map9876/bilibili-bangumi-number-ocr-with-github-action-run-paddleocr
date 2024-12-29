@@ -21,9 +21,8 @@ img_path = 'wap-article_244e0ff.png'  # 请替换为你的图片路径
 img = cv2.imread(img_path)
 result = ocr.ocr(img)
 
-for line in result:
-    line_text = ''.join([word_info[-1] for word_info in line])
-    print(line_text)
-    
-    #https://paddlepaddle.github.io/PaddleOCR/latest/quick_start.html#1-paddlepaddle
+for i in range(len(result[0])):
+    print(result[0][i][1][0])
+
+#https://paddlepaddle.github.io/PaddleOCR/latest/quick_start.html#1-paddlepaddle
     #https://developer.baidu.com/article/detail.html?id=3314943
