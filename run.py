@@ -22,7 +22,7 @@ img = cv2.imread(img_path)
 result = ocr.ocr(img)
 
 for line in result:
-    line_text = ' '.join([word_info[-1] for word_info in line])
+    line_text = ''.join([word_info[-1] for word_info in line])
     print(line_text)
     
     #https://paddlepaddle.github.io/PaddleOCR/latest/quick_start.html#1-paddlepaddle
