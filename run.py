@@ -25,7 +25,7 @@ import cv2
 ocr = PaddleOCR(lang='ch')
 img_path = 'wap-article_244e0ff.png'  # 请替换为你的图片路径
 
-def pip_ocr(img_path, title)
+def pip_ocr(img_path, title):
     img = cv2.imread(img_path)
     result = ocr.ocr(img)
     
