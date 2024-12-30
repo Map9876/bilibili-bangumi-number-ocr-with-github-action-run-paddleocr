@@ -68,14 +68,23 @@ def get_permanent_link(url):
 
 # Function to get video download url using ep_id
 def get_video_download_link(ep_id):
+    headers = {
+    'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36',
+    }
+
+    params = {
+    'ep_id': ep_id,
+    'bsource': '',
+    }
+
     api_url = f"https://api.bilibili.com/pgc/player/web/playurl/html5?ep_id={ep_id}&bsource="
-    response = requests.get(api_url, headers=headers)
+    response = requests.get('https://api.bilibili.com/pgc/player/web/playurl/html5', params=params, headers=headers)
     if response.status_code == 200:
         data = response.json()
         if data['code'] == 0 and 'result' in data:
             return data['result']['durl'][0]['url']
         else:
-            print(f"Failed to fetch video download link: {data['message']}, {response.text}")
+            print(f"Failed to fetch video download link: {data['message']}, {api_url}, {response.text}")
             return None
     else:
         print(f"Failed to fetch video download link: {response.status_code}")
