@@ -75,7 +75,7 @@ def get_video_download_link(ep_id):
         if data['code'] == 0 and 'result' in data:
             return data['result']['durl'][0]['url']
         else:
-            print(f"Failed to fetch video download link: {data['message']}, {response.text")
+            print(f"Failed to fetch video download link: {data['message']}, {response.text}")
             return None
     else:
         print(f"Failed to fetch video download link: {response.status_code}")
