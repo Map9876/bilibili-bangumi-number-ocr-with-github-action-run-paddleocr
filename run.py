@@ -46,6 +46,13 @@ def pip_ocr(img_path, title):
 
 
 # Headers for requests
+import requests
+import time
+import json
+from datetime import datetime
+import os
+import os
+
 headers = {
     'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36',
 }
@@ -60,10 +67,12 @@ def get_video_list(url):
 
 # Function to get permanent link
 def get_permanent_link(url):
-    response = requests.head(url, headers=headers, allow_redirects=True)
+    response = requests.get(url, headers=headers, allow_redirects=True)
     if 'location' in response.headers:
+        print(response.url)
         return get_permanent_link(response.headers['location'])
     else:
+        print(response.url)
         return response.url
 
 # Function to get video download url using ep_id
@@ -104,7 +113,7 @@ def download_video(url, filename):
 
 # Function to capture screenshot
 def capture_screenshot(video_path, time_point, output_path):
-    os.system(f"yes | ffmpeg -ss {time_point} -i {video_path} -vf 'crop=iw/4:ih/6:iw*3/4:ih*5/6' -frames:v 1 {output_path}")
+    os.system(f"yes | ffmpeg -ss {time_point} -i {video_path} -vf 'crop=iw/4:ih/6:iw*3/4:ih*5/6' -frames:v 1 {output_path} -loglevel quiet 1 ")
 
 def main():
     video_list_url = "https://app.bilibili.com/x/v2/space/archive/cursor?vmid=928123"
@@ -112,6 +121,8 @@ def main():
     items = video_data['data']['item']
 
     for item in items:
+        print()
+        print()
         bvid = item['bvid']
         title = item['title']
         title = title.replace("/", "")
@@ -120,11 +131,13 @@ def main():
         print(title)
         # Get permanent link
         permanent_link = get_permanent_link(temporary_link)
+       # print(permanent_link)这里得到ep链接
         
         # Extract ep_id from permanent link
         ep_id = permanent_link.split('ep')[-1]
-        
+     #   ep_id变成了https://m.bilibili.com/video/BV1NTkXYMEjA
         # Get video download link
+        print("检查ep_id点",ep_id)
         video_download_url = get_video_download_link(ep_id)
         
         if video_download_url:
@@ -136,7 +149,7 @@ def main():
             screenshot1 = f"{title}_screenshot_4s.png"
             screenshot2 = f"{title}_screenshot_8s.png"
             capture_screenshot(filename, "00:00:04", screenshot1)
-            pip_ocr(screenshot2, title)
+           # pip_ocr(screenshot2, title)
             capture_screenshot(filename, "00:00:08", screenshot2)
         else:
             print(f"Skipping video {title} due to download link fetch failure")
