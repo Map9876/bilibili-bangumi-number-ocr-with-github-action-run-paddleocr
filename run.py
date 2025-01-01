@@ -133,7 +133,8 @@ def get_ep_id_from_page(url, headers):
             ep_info = json_content['props']['pageProps']['dehydratedState']['queries'][0]['state']['data']['result']['play_view_business_info']['episode_info']
             ep_id = ep_info['ep_id']
             return ep_id
-            
+        except:
+            return None
 def main():
     video_list_url = "https://app.bilibili.com/x/v2/space/archive/cursor?vmid=928123"
     video_data = get_video_list(video_list_url)
