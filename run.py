@@ -4,24 +4,7 @@ import json
 from datetime import datetime
 import os
 import os
-def get_ep_id_from_page(url, headers):
-    final_url = get_permanent_link(url, headers)
-    response = requests.get(final_url, headers=headers)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    
-    # Find the script tag with id __NEXT_DATA__
-    script_tag = soup.find('script', {'id': '__NEXT_DATA__'})
-    
-    if script_tag:
-        # Load the JSON content from the script tag
-        import json
-        json_content = json.loads(script_tag.string)
-        
-        # Navigate to the desired part of the JSON structure
-        try:
-            ep_info = json_content['props']['pageProps']['dehydratedState']['queries'][0]['state']['data']['result']['play_view_business_info']['episode_info']
-            ep_id = ep_info['ep_id']
-            return ep_id
+
             
 exec_command = 'pip install setuptools numpy'
     
@@ -132,7 +115,25 @@ def download_video(url, filename):
 # Function to capture screenshot
 def capture_screenshot(video_path, time_point, output_path):
     os.system(f"yes | ffmpeg -ss {time_point} -i {video_path} -vf 'crop=iw/4:ih/6:iw*3/4:ih*5/6' -frames:v 1 {output_path} -loglevel quiet 1 ")
-
+def get_ep_id_from_page(url, headers):
+    final_url = get_permanent_link(url, headers)
+    response = requests.get(final_url, headers=headers)
+    soup = BeautifulSoup(response.content, 'html.parser')
+    
+    # Find the script tag with id __NEXT_DATA__
+    script_tag = soup.find('script', {'id': '__NEXT_DATA__'})
+    
+    if script_tag:
+        # Load the JSON content from the script tag
+        import json
+        json_content = json.loads(script_tag.string)
+        
+        # Navigate to the desired part of the JSON structure
+        try:
+            ep_info = json_content['props']['pageProps']['dehydratedState']['queries'][0]['state']['data']['result']['play_view_business_info']['episode_info']
+            ep_id = ep_info['ep_id']
+            return ep_id
+            
 def main():
     video_list_url = "https://app.bilibili.com/x/v2/space/archive/cursor?vmid=928123"
     video_data = get_video_list(video_list_url)
