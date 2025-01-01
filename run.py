@@ -140,7 +140,7 @@ def main():
         # Get video download link
         """
         
-        ep_id = get_ep_id_from_page(temporary_link, headers):
+        ep_id = get_ep_id_from_page(temporary_link, headers)
         print("检查ep_id点",ep_id)
         video_download_url = get_video_download_link(ep_id)
         
