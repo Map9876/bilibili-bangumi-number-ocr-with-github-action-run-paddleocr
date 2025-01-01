@@ -116,7 +116,7 @@ def download_video(url, filename):
 def capture_screenshot(video_path, time_point, output_path):
     os.system(f"yes | ffmpeg -ss {time_point} -i {video_path} -vf 'crop=iw/4:ih/6:iw*3/4:ih*5/6' -frames:v 1 {output_path} -loglevel quiet 1 ")
 def get_ep_id_from_page(url, headers):
-    final_url = get_permanent_link(url, headers)
+    final_url = get_permanent_link(url)
     response = requests.get(final_url, headers=headers)
     soup = BeautifulSoup(response.content, 'html.parser')
     
