@@ -130,13 +130,17 @@ def main():
         temporary_link = f"https://m.bilibili.com/video/{bvid}"
         print(title)
         # Get permanent link
+        """
         permanent_link = get_permanent_link(temporary_link)
-       # print(permanent_link)这里得到ep链接
+        print(permanent_link)这里得到ep链接
         
         # Extract ep_id from permanent link
         ep_id = permanent_link.split('ep')[-1]
      #   ep_id变成了https://m.bilibili.com/video/BV1NTkXYMEjA
         # Get video download link
+        """
+        
+        ep_id = get_ep_id_from_page(temporary_link, headers):
         print("检查ep_id点",ep_id)
         video_download_url = get_video_download_link(ep_id)
         
@@ -149,9 +153,8 @@ def main():
             screenshot1 = f"{title}_screenshot_4s.png"
             screenshot2 = f"{title}_screenshot_8s.png"
             capture_screenshot(filename, "00:00:04", screenshot1)
-           # pip_ocr(screenshot2, title)
+           # pip_
             capture_screenshot(filename, "00:00:08", screenshot2)
         else:
             print(f"Skipping video {title} due to download link fetch failure")
-
 main()
