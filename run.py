@@ -4,10 +4,11 @@ import json
 from datetime import datetime
 import os
 import os
-from bs4 import BeautifulSoup
+
             
-exec_command = 'pip install setuptools numpy'
-    
+exec_command = 'pip install setuptools numpy bs4 beautifulsoup4'
+import bs4
+
 os.system(exec_command)
 
     # 如果库不存在，则执行安装命令 
