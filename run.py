@@ -11,6 +11,7 @@ exec_command = 'pip install setuptools numpy bs4 beautifulsoup4'
 
 os.system(exec_command)
 import bs4
+from bs4 import BeautifulSoup
     # 如果库不存在，则执行安装命令 
 exec_command = 'python3 -m pip install paddlepaddle==3.0.0b2 -i https://www.paddlepaddle.org.cn/packages/stable/cpu/'
 os.system(exec_command)
