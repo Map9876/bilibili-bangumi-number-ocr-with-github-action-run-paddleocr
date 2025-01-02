@@ -164,7 +164,7 @@ def main():
      #   ep_id变成了https://m.bilibili.com/video/BV1NTkXYMEjA
         # Get video download link
         """
-        print("566666", permanent_link)
+        print("566666检查点", temporary_link)
         ep_id = get_ep_id_from_page(temporary_link, headers)
         print("检查ep_id点",ep_id)
         video_download_url = get_video_download_link(ep_id)
