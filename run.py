@@ -4,7 +4,7 @@ import json
 from datetime import datetime
 import os
 import os
-import bs4
+from bs4 import BeautifulSoup
             
 exec_command = 'pip install setuptools numpy'
     
