@@ -7,9 +7,9 @@ import os
 
             
 exec_command = 'pip install setuptools numpy bs4 beautifulsoup4'
-ok = True
+
 global ok
-ok = "随便"
+ok = True
 os.system(exec_command)
 import bs4
 from bs4 import BeautifulSoup
