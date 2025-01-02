@@ -140,6 +140,8 @@ def get_ep_id_from_page(url, headers):
         except:
             return None
 def main():
+    global ok
+    ok = True
     video_list_url = "https://app.bilibili.com/x/v2/space/archive/cursor?vmid=928123"
     video_data = get_video_list(video_list_url)
     items = video_data['data']['item']
