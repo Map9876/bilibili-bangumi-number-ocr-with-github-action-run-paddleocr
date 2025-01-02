@@ -122,9 +122,7 @@ def get_ep_id_from_page(url, headers):
     final_url = get_permanent_link(url)
     response = requests.get(final_url, headers=headers)
     soup = BeautifulSoup(response.content, 'html.parser')
-    if ok is True:
-        print(response.text)
-        ok = False
+    print(response.text)
     # Find the script tag with id __NEXT_DATA__
     script_tag = soup.find('script', {'id': '__NEXT_DATA__'})
     
