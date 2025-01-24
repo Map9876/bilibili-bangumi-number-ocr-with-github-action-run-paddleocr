@@ -54,6 +54,7 @@ def process_links_and_images(links_and_siblings):
         if image_url:
             image_url = image_url.lstrip('//')
             image_path = f"images/{os.path.basename(image_url)}"
+            os.mkdir("./images")
             download_image(f"https://{image_url}", image_path)
             ocr_result = perform_ocr(image_path)
 
