@@ -96,7 +96,7 @@ def main():
     html_content = response.text
 
     soup = BeautifulSoup(html_content, 'html.parser')
-    script_tag = soup.find('script').string
+    script_tag = soup.find('script', string=re.compile(r'window.__BILIACT_EVAPAGEDATA__\s*=\s*'))
 
     if script_tag:
         lines = str(script_tag).split('\n')
