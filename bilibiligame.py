@@ -6,7 +6,7 @@ from datetime import datetime
 import time
 import cv2
 from bs4 import BeautifulSoup
-os.system('pip install setuptools numpy bs4 beautifulsoup4 paddleocr')
+os.system('pip install setuptools numpy bs4 beautifulsoup4 paddleocr opencv-python')
 os.system('pip install paddlepaddle==3.0.0b2 -i https://www.paddlepaddle.org.cn/packages/stable/cpu/')   
 from paddleocr import PaddleOCR, draw_ocrp
 
