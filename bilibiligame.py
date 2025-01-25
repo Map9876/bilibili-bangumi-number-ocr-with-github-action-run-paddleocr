@@ -6,6 +6,9 @@ from datetime import datetime
 import time
 import cv2
 from bs4 import BeautifulSoup
+os.system('pip install setuptools numpy bs4 beautifulsoup4 paddleocr')
+os.system('pip install paddlepaddle==3.0.0b2 -i https://www.paddlepaddle.org.cn/packages/stable/cpu/')   
+from paddleocr import PaddleOCR, draw_ocrp
 
 # 安装所需的库
 def install_packages():
@@ -23,7 +26,7 @@ def download_image(image_url, save_path):
 
 # OCR 识别图片文字
 def perform_ocr(img_path):
-    from paddleocr import PaddleOCR, draw_ocrp
+    #from paddleocr import PaddleOCR, draw_ocrp
     ocr = PaddleOCR(lang='ch')
     img = cv2.imread(img_path)
     result = ocr.ocr(img)
@@ -72,7 +75,7 @@ def process_links_and_images(links_and_siblings):
 
 # 主函数，解析 HTML 并提取数据
 def main():
-    install_packages()
+    #install_packages()
 
     headers = {
     'authority': 'data.bilibili.com',
