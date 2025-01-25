@@ -14,7 +14,7 @@ from paddleocr import PaddleOCR, draw_ocrp
 import numpy
 # 安装所需的库
 def install_packages():
-    os.system('pip install setuptools numpy bs4 beautifulsoup4 paddleocr')
+    os.system('pip install setuptools bs4 beautifulsoup4 paddleocr')
     os.system('pip install paddlepaddle==3.0.0b2 -i https://www.paddlepaddle.org.cn/packages/stable/cpu/')   
 
 # 下载图片
