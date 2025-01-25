@@ -27,11 +27,16 @@ os.system(c)
 import cv2
 
 ocr = PaddleOCR(lang='ch')
+print("上面是ocr = PaddleOCR(lang='ch')")
+   
 img_path = 'wap-article_244e0ff.png'  # 请替换为你的图片路径
 
 def pip_ocr(img_path, title):
     img = cv2.imread(img_path)
+    print("下面是result = ocr.ocr(imgpath)")
+   
     result = ocr.ocr(img)
+    print("上面是result = ocr.ocr(imgpath)")
     
     with open("README.md", "a")  as f:
         f.write(f"\n\n{title} : \n")
