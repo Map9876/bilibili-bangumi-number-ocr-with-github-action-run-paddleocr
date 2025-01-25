@@ -9,6 +9,7 @@ from numpy import char
 from bs4 import BeautifulSoup
 os.system('pip install setuptools numpy bs4 beautifulsoup4 paddleocr opencv-python')
 os.system('pip install paddlepaddle==3.0.0b2 -i https://www.paddlepaddle.org.cn/packages/stable/cpu/')   
+import paddle
 from paddleocr import PaddleOCR, draw_ocrp
 import numpy
 # 安装所需的库
