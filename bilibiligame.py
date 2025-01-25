@@ -12,6 +12,51 @@ os.system(' python -m pip install --pre paddlepaddle -i https://www.paddlepaddle
 import paddle
 from paddleocr import PaddleOCR, draw_ocrp
 import numpy
+
+import requests
+import time
+import json
+from datetime import datetime
+import os
+import os
+
+            
+exec_command = 'pip install setuptools numpy bs4 beautifulsoup4'
+
+global ok
+ok = True
+os.system(exec_command)
+import bs4
+from bs4 import BeautifulSoup
+    # 如果库不存在，则执行安装命令 
+exec_command = 'python3 -m pip install paddlepaddle==3.0.0b2 -i https://www.paddlepaddle.org.cn/packages/stable/cpu/'
+os.system(exec_command)
+exec_command = 'pip install paddleocr'
+    
+os.system(exec_command)
+from paddleocr import PaddleOCR,draw_ocr
+import paddle
+from paddleocr import PaddleOCR,draw_ocr
+c = "curl https://bce.bdstatic.com/p3m/common-service/uploads/wap-article_244e0ff.png -O"   
+os.system(c) 
+import cv2
+
+ocr = PaddleOCR(lang='ch')
+img_path = 'wap-article_244e0ff.png'  # 请替换为你的图片路径
+
+def pip_ocr(img_path, title):
+    img = cv2.imread(img_path)
+    result = ocr.ocr(img)
+    
+    with open("README.md", "a")  as f:
+        f.write(f"\n\n{title} : \n")
+    for i in range(len(result[0])):
+    
+        print(result[0][i][1][0])
+    with open("README.md", "a")  as f:
+        f.write(result[0][i][1][0])
+
+        
 # 安装所需的库
 def install_packages():
     os.system('pip install setuptools bs4 beautifulsoup4 paddleocr')
