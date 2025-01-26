@@ -34,6 +34,11 @@ os.system(exec_command)
 exec_command = 'pip install paddleocr'
     
 os.system(exec_command)
+exec_command = 'pip uninstall numpy scipy pandas'
+system(exec_command)
+exec_command = 'pip install numpy==1.26.4 scipy pandas'
+    
+os.system(exec_command)
 from paddleocr import PaddleOCR,draw_ocr
 import paddle
 from paddleocr import PaddleOCR,draw_ocr
