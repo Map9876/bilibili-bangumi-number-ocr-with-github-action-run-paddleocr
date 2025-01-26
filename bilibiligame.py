@@ -35,7 +35,7 @@ exec_command = 'pip install paddleocr'
     
 os.system(exec_command)
 exec_command = 'pip uninstall numpy scipy pandas'
-system(exec_command)
+os.system(exec_command)
 exec_command = 'pip install numpy==1.26.4 scipy pandas'
     
 os.system(exec_command)
