@@ -29,16 +29,17 @@ os.system(exec_command)
 import bs4
 from bs4 import BeautifulSoup
     # 如果库不存在，则执行安装命令 
+os.system(exec_command)
+exec_command = 'pip uninstall numpy scipy pandas'
+
 exec_command = 'python3 -m pip install paddlepaddle==3.0.0b2 -i https://www.paddlepaddle.org.cn/packages/stable/cpu/'
 os.system(exec_command)
 exec_command = 'pip install paddleocr'
     
 os.system(exec_command)
-exec_command = 'pip uninstall numpy scipy pandas'
-os.system(exec_command)
-exec_command = 'pip install numpy==1.19.3 scipy pandas'
+#exec_command = 'pip install numpy==1.19.3 scipy pandas'
     
-os.system(exec_command)
+#os.system(exec_command)
 from paddleocr import PaddleOCR,draw_ocr
 import paddle
 from paddleocr import PaddleOCR,draw_ocr
