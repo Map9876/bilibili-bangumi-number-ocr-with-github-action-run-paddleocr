@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>󠁿󠁺󠁱󠁭‌󠁰󠁭‍󠁿󠁿󠁲󠁡󠁿󠁵󠁵󠁲󠁧󠁶󠁱󠁯󠁯</title>
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <link rel="shortcut icon" type=image/x-icon href="https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico">
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <div style="text-align: center; margin-top: 21.6vh;">
+            <img src="https://wx.qlogo.cn/mmhead/Q3auHgzwzM5hquVCXs3GGoLibFceAyGqMjKcBGw85hXwBQh0woJAcqg/0" style="border-radius: 50%; width: 66px;height: 66px;">
+            <p>美团外卖丨外卖美食奶茶咖啡水果</p>
+            <div style="text-align: center;margin-top: 15px;">
+                <img src="https://www.c1n.cn/img/weapplogo.svg" style="vertical-align: middle;">
+                <span style="vertical-align: middle;color: rgba(0, 0, 0, 0.3);font-size: 14px; margin-left: 5px;">小程序</span>
+            </div>
+        </div>
+        <div id="qrcode-container" hidden>
+            <img style="margin-top:14vh;width:220px" id="qrcode"><br><span>微信扫码打开小程序</span>
+        </div>
+        <div id="mobile-container" hidden>
+            <p style="margin-top: 20vh;line-height: 30px;color: #999;">https://s.c1ns.cn/hq3aW<br>请使用微信打开小程序链接</p>
+        </div>
+    </div>
+    <div id="wx-container" style="text-align: center;margin-top: 40.5vh;" hidden>
+        <wx-open-launch-weapp id="weapp-btn" appid="wx2c348cf579062e56" path="packages/restaurant/restaurant/restaurant?poi_id_str=eJrJYfs_vvAcZYlBkAh89wI&amp;allowance_alliance_scenes=1100&amp;poi_id=-100&amp;ad_activity_flag={&quot;adActivityFlag&quot;:&quot;200&quot;,&quot;type&quot;:0}">
+            <template>
+                <style>
+                    .btn {
+                        width: 185px;
+                        padding: 8px 24px;
+                        font-size: 17px;
+                        text-align: center;
+                        color: #fff;
+                        line-height: 1.41;
+                        border-radius: 4px;
+                        background-color: #07c160;
+                        border: 0px;
+                    }
+                </style>
+                <div style="width: 100%;text-align: center;">
+                    <button class="btn">打开小程序</button>
+                </div>
+            </template>
+        </wx-open-launch-weapp>
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        var ua = navigator.userAgent.toLowerCase();
+        var isWeixin = ua.match(/wxwork/i) != 'wxwork' && ua.match(/MicroMessenger/i) == 'micromessenger';
+        var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|IEMobile|Phone)/i);
+        if (isWeixin&&isMobile) {
+            wx.config({
+                debug: false,
+                appId: 'wxb514c012d754b09d',
+                timestamp: '1749050046',
+                nonceStr: '20p6M78zlT',
+                signature: '8255220666abbe6e55edda8378e401f3cb10c63e',
+                jsApiList: ['closeWindow', 'showMenuItems', 'hideAllNonBaseMenuItem'],
+                openTagList: ['wx-open-launch-weapp']
+            });
+            var launchBtn = document.getElementById('weapp-btn');
+            launchBtn.addEventListener('ready', function (e) { wx.hideAllNonBaseMenuItem(); });
+            launchBtn.addEventListener('launch', function (e) { wx.closeWindow(); });
+            launchBtn.addEventListener('error', function (e) { alert("error"); });
+            document.getElementById('wx-container').hidden = false;
+        } else if(isMobile){
+        	document.getElementById('mobile-container').hidden = false;
+        } else {
+            document.getElementById('qrcode-container').hidden = false;
+            document.getElementById('qrcode').src = "https://c1n.cn/manage/shortUrl/qrcode?text="+encodeURIComponent("https://s.c1ns.cn/hq3aW");
+        }
+    };
+</script>
+
+  </html>
